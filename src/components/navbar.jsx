@@ -7,7 +7,7 @@ export default function Navbar() {
                     <div className="app-logo-container">
                         <img src={appLogo} alt="logo" className='main-logo' />
                     </div>
-                    <div className="greet-container">
+                    <div className="app-name-container">
                         <p>MUSIC</p>
                         <p>NINETY9</p>
                     </div>
