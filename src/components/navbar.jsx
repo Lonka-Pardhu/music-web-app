@@ -18,7 +18,7 @@ export default function Navbar() {
                         <p>Home</p>
                     </div>
                     <div className='nav-list'>
-                        <span class="material-symbols-outlined">explore</span>
+                        <span className="material-symbols-outlined">explore</span>
                         <p>Explore</p>
                     </div>
                     <div className='nav-list'>
@@ -41,15 +41,15 @@ export default function Navbar() {
 
                     <div className="user-playlists-container">
                         <div className="u-playlist-one u-playlist">
-                            <span class="material-symbols-outlined">sort</span>
+                            <span className="material-symbols-outlined">sort</span>
                             <p>user playlist1</p>
                         </div>
                         <div className="u-playlist-two u-playlist">
-                            <span class="material-symbols-outlined">sort</span>
+                            <span className="material-symbols-outlined">sort</span>
                             <p>user playlist2</p>
                         </div>
                         <div className="u-playlist-three u-playlist">
-                            <span class="material-symbols-outlined">sort</span>
+                            <span className="material-symbols-outlined">sort</span>
                             <p>user playlist3</p>
                         </div>
                     </div>
