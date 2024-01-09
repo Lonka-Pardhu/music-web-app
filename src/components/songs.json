@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "songName": "Lucid Dreams",
+        "artist": "Juice WRLD",
+        "audioFile": "../media/lucid-dreams-juice-wrld.mp3",
+        "songImage":"../media/lucid-dreams.jpg"
+    },
+    {
+        "id":2,
+        "songName": "The Real Slim Shady",
+        "artist": "Eminem",
+        "audioFile": "../media/real-slim-shady-eminem.mp3",
+        "songImage":"../media/the-real-slim-shady.jpg"
+    },
+    {
+        "id":3,
+        "songName": "Memory Reboot",
+        "artist": "VOJ",
+        "audioFile": "../media/memory-reboot-voj.mp3",
+        "songImage":"../media/memory-reboot.jpg"
+    },
+    {
+        "id":4,
+        "songName": "Runaway",
+        "artist": "Kanye West",
+        "audioFile": "../media/runaway-kanye-west.mp3",
+        "songImage":"../media/runaway.jpg"
+    },
+    {
+        "id":5,
+        "songName": "Starboy",
+        "artist": "The Weekend",
+        "audioFile": "../media/starboy-weekend.mp3",
+        "songImage":"../media/stayboy.jpg"
+    },
+    {
+        "id":6,
+        "songName": "The Search",
+        "artist": "NF",
+        "audioFile": "../media/the-search-nf.mp3",
+        "songImage":"../media/the-search.jpg"
+    }
+]
