@@ -1,17 +1,19 @@
-// import Songs from './songs.json'
-import songCover from '../media/memory-reboot.jpg'
-// import songAudio from '../media/memory-reboot-voj.mp3'
-// import songArtist from '../media/voj.jpg'
+import Songs from './songs'
 
 export default function SongsList() {
     return (
         <>
-            <div className="song-container">
-                <div className="song-coverImg-container">
-                    <img src={songCover} alt="albumImage" />
-                </div>
-                <p>Memory Reboot</p>
-                <p>VOJ</p>
+            <div className="songs-list-wrapper">
+                {Songs.map(song => (
+                    <div className="song-container" key={song.id}>
+                        <div className="song-coverImg-container">
+                            <img src={song.songImage} alt="albumImage" />
+                        </div>
+                        <p>{song.songName}</p>
+                        <p>{song.artist}</p>
+                        <p>{song.duration}</p>
+                    </div>
+                ))}
             </div>
         </>
     )
