@@ -4,13 +4,19 @@ import memoryReboot from '../media/memory-reboot.jpg'
 import runaway from '../media/runaway.jpg'
 import starboy from '../media/starboy.jpg'
 import theSearch from '../media/the-search.jpg'
+import lucidDreamsSong from '../media/lucid-dreams-juice-wrld.mp3'
+import realSlimShadySong from '../media/real-slim-shady-eminem.mp3'
+import memoryRebootSong from '../media/memory-reboot-voj.mp3'
+import runawaySong from '../media/runaway-kanye-west.mp3'
+import starboySong from '../media/starboy-weekend.mp3'
+import searchSong from '../media/the-search-nf.mp3'
 
 const songsData = [
     {
         id: 1,
         songName: 'Lucid Dreams',
         artist: 'Juice WRLD',
-        audioFile: '../media/lucid-dreams-juice-wrld.mp3',
+        audioFile: [lucidDreamsSong],
         songImage: [lucidDreams],
         duration: '04:00'
     },
@@ -18,7 +24,7 @@ const songsData = [
         id: 2,
         songName: 'The Real Slim Shady',
         artist: 'Eminem',
-        audioFile: '../media/real-slim-shady-eminem.mp3',
+        audioFile: [realSlimShadySong],
         songImage: [theRealSlimShady],
         duration: '04:44'
     },
@@ -26,7 +32,7 @@ const songsData = [
         id: 3,
         songName: 'Memory Reboot',
         artist: 'VOJ',
-        audioFile: '../media/memory-reboot-voj.mp3',
+        audioFile: [memoryRebootSong],
         songImage: [memoryReboot],
         duration: '03:09'
     },
@@ -34,7 +40,7 @@ const songsData = [
         id: 4,
         songName: 'Runaway',
         artist: 'Kanye West',
-        audioFile: '../media/runaway-kanye-west.mp3',
+        audioFile: [runawaySong],
         songImage: [runaway],
         duration: '09:07'
     },
@@ -42,7 +48,7 @@ const songsData = [
         id: 5,
         songName: 'Starboy',
         artist: 'The Weekend',
-        audioFile: '../media/starboy-weekend.mp3',
+        audioFile: [starboySong],
         songImage: [starboy],
         duration: '03:50'
     },
@@ -50,7 +56,7 @@ const songsData = [
         id: 6,
         songName: 'The Search',
         artist: 'NF',
-        audioFile: '../media/the-search-nf.mp3',
+        audioFile: [searchSong],
         songImage: [theSearch],
         duration: '04:08'
     }
