@@ -1,16 +1,13 @@
-import { useState, useEffect } from 'react'
-import AudioPlayer from './audioPlayer'
+import { useState } from 'react'
 import Songs from './songs'
+import AudioPlayer from './audioPlayer';
 
 export default function SongsList() {
     const [clickedSong, setClickedSong] = useState(null);
 
-    useEffect(() => {
-        if (clickedSong !== null) {
-            console.log(clickedSong)
-        }
-    }, [clickedSong])
-
+    // function handleClick(song) {
+    //     setClickedSong(song);
+    // }
     const handleClick = (song) => {
         setClickedSong(song);
     }
@@ -34,7 +31,8 @@ export default function SongsList() {
                     </div>
                 ))}
             </div>
-            {clickedSong && <AudioPlayer clickedSong={clickedSong} />}
+            {/* <AudioPlayer /> */}
+            {clickedSong ? <AudioPlayer pickedSong={clickedSong} /> : <AudioPlayer />}
         </>
     )
 }

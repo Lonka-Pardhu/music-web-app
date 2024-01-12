@@ -1,22 +1,21 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef } from "react"
 
-export default function AudioPlayer({ clickedSong }) {
+export default function AudioPlayer({ pickedSong }) {
 
-    // const [audio, setAudio] = useState(new Audio())
-    // useEffect(() => {
-    //     if (clickedSong) {
-    //         // audio.pause();
+    const audioRef = useRef(null);
 
-    //         const newAudio = new Audio(clickedSong.audioFile);
-    //         setAudio(newAudio)
-    //         audio.play();
-    //     }
-    // }, [clickedSong, audio])
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.load();
+        }
+    }, [pickedSong])
 
-    if (!clickedSong) {
+    if (!pickedSong) {
         return (
             <>
-                <h2>Please click on any of the songs above</h2>
+                <div className="audio-player-default-container">
+                    <h2>Please click on any of the songs above</h2>
+                </div>
             </>
         )
     }
@@ -26,15 +25,15 @@ export default function AudioPlayer({ clickedSong }) {
                 <div className="audio-player-wrapper">
                     <div className="active-song-details-wrap">
                         <div className="active-song-image-container">
-                            <img src={clickedSong.songImage} alt="albumImage" />
+                            <img src={pickedSong.songImage} alt="albumImage" />
                         </div>
                         <div className="active-song-details">
-                            <p>{clickedSong.songName}</p>
-                            <p>{clickedSong.artist}</p>
+                            <p>{pickedSong.songName}</p>
+                            <p>{pickedSong.artist}</p>
                         </div>
                     </div>
-                    <audio controls autoPlay>
-                        <source src={clickedSong.audioFile} />
+                    <audio controls autoPlay ref={audioRef}>
+                        <source src={pickedSong.audioFile} />
                     </audio>
                 </div>
             </div>

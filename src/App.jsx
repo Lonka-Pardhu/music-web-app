@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from './components/navbar'
 import Search from './components/search'
 import Songs from './components/songsList'
-import AudioPlayer from './components/audioPlayer'
+// import AudioPlayer from './components/audioPlayer'
 function App() {
   return (
     <div className="App">
@@ -11,7 +11,7 @@ function App() {
         <Search />
         <Songs />
       </div>
-      <AudioPlayer />
+      {/* <AudioPlayer /> */}
     </div>
   );
 }
