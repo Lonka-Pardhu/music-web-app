@@ -40,18 +40,14 @@ export default function Navbar() {
                     </div>
 
                     <div className="user-playlists-container">
-                        <div className="u-playlist-one u-playlist">
-                            <span className="material-symbols-outlined">sort</span>
-                            <p>user playlist1</p>
-                        </div>
-                        <div className="u-playlist-two u-playlist">
-                            <span className="material-symbols-outlined">sort</span>
-                            <p>user playlist2</p>
-                        </div>
-                        <div className="u-playlist-three u-playlist">
-                            <span className="material-symbols-outlined">sort</span>
-                            <p>user playlist3</p>
-                        </div>
+                        {['userPlaylist1', 'userPlaylist2', 'userPlaylist3'].map(ele => {
+                            return (
+                                <div className="u-playlist">
+                                    <span className="material-symbols-outlined">sort</span>
+                                    <p>{ele}</p>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
