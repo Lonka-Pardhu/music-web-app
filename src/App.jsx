@@ -1,7 +1,7 @@
 import './App.css';
-import Navbar from './components/navbar'
-import Search from './components/search'
-import Songs from './components/songsList'
+import Navbar from './components/Navbar/navbar'
+import Search from './components/Search/search'
+import Songs from './components/Songs/songsList'
 // import AudioPlayer from './components/audioPlayer'
 function App() {
   return (

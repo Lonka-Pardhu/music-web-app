@@ -1,4 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useRef } from "react"
+import { AudioPlayerContainer } from "./audioPlayer.styled";
+import { AudioPlayerDefault } from "./audioPlayerDefault.styled";
 
 export default function AudioPlayer({ pickedSong }) {
 
@@ -13,15 +16,16 @@ export default function AudioPlayer({ pickedSong }) {
     if (!pickedSong) {
         return (
             <>
-                <div className="audio-player-default-container">
+                <AudioPlayerDefault>
                     <h2>Please click on any of the songs above</h2>
-                </div>
+                </AudioPlayerDefault>
+
             </>
         )
     }
     return (
         <>
-            <div className="audio-player-container">
+            <AudioPlayerContainer>
                 <div className="audio-player-wrapper">
                     <div className="active-song-details-wrap">
                         <div className="active-song-image-container">
@@ -36,7 +40,7 @@ export default function AudioPlayer({ pickedSong }) {
                         <source src={pickedSong.audioFile} />
                     </audio>
                 </div>
-            </div>
+            </AudioPlayerContainer>
         </>
     )
 }

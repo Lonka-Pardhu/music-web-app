@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100&display=swap');
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
-}
+
 .App{
   display: flex;
 }
@@ -15,7 +9,7 @@ body{
   font-family: 'Poppins', sans-serif;
   background-color: #0E0E0E;
 }
-.nav-container{
+/* .nav-container{
   position: fixed;
   height: 100vh;
   width: 220px;
@@ -84,10 +78,10 @@ body{
   font-size: 13px;
   color: white;
   transition: color 0.5s ease,letter-spacing 0.3s ease;
-}
+} */
 
 /* Nav user playlist */
-.nav-user-playlist-container{
+/* .nav-user-playlist-container{
   margin: 40px 0 0 30px;
 }
 .user-playlist-heading{
@@ -112,10 +106,10 @@ body{
   margin: 0 0 0 10px;
   font-size: 13px;
   color: white;
-}
+} */
 
 /* search component css */
-.search-field-wrapper {
+/* .search-field-wrapper {
   margin: 20px 0 0 280px;
 }
 .search-icon{
@@ -152,7 +146,7 @@ body{
 }
 .search-field:focus{
   outline: none;
-}
+} */
 
 /* Songs list component */
 
@@ -160,7 +154,7 @@ body{
   display: flex;
   flex-direction: column;
 }
-.songs-list-wrapper{
+/* .songs-list-wrapper{
   margin:30px 0 120px 300px;
 }
 .song-container{
@@ -207,10 +201,10 @@ body{
 }
 .song-duration-container > p{
   font-size: 14px;
-}
+} */
 
 /* audio player css */
-.audio-player-default-container{
+/* .audio-player-default-container{
   height: 100px;
   width: 100%;
   background-color: #121212;
@@ -233,7 +227,7 @@ body{
   display: flex;
   align-items: center;
 
-  margin: 20px 0 0 140px; /*eidt*/
+  margin: 20px 0 0 140px; 
 }
 .active-song-details-wrap{
   display: flex;
@@ -260,7 +254,7 @@ body{
   border-radius: 5px;
   width: 100%;
   height: 100%;
-}
+} */
 /* audio::-webkit-media-controls-enclosure {
   border-radius: px;
   background-color: #121212;
