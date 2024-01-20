@@ -2,17 +2,16 @@ import styled from 'styled-components';
 
 export const AudioPlayerContainer = styled.div`
 
-    width: 100%;    
+    width: 100%;
     background-color: #121212;
     position: fixed;
     bottom: 0;
     left:0;
     color: white;
 
-.audio-player-wrapper{
+  .audio-player-wrapper{
     display: flex;
     align-items: center;
-  
     margin: 20px 0 0 140px; /*eidt*/
   }
   .active-song-details-wrap{
