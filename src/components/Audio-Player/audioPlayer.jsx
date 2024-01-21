@@ -4,7 +4,7 @@ import { AudioPlayerContainer } from "./audioPlayer.styled";
 import { AudioPlayerDefault } from "./audioPlayerDefault.styled";
 import AudioControls from "./PlayerControls/audioControls"
 
-export default function AudioPlayer({ pickedSong }) {
+export default function AudioPlayer({ pickedSong, ...controlProps }) {
 
     const audioRef = useRef(null);
 
@@ -16,14 +16,12 @@ export default function AudioPlayer({ pickedSong }) {
 
     if (!pickedSong) {
         return (
-            <>
-                <AudioPlayerDefault>
-                    <h2>Please click on any of the songs above</h2>
-                </AudioPlayerDefault>
-
-            </>
+            <AudioPlayerDefault>
+                <h2>Please click on any of the songs above</h2>
+            </AudioPlayerDefault>
         )
     }
+
     return (
         <AudioPlayerContainer>
             <div className="audio-player-wrapper">
@@ -39,7 +37,7 @@ export default function AudioPlayer({ pickedSong }) {
                 {/* <audio controls autoPlay ref={audioRef}>
                         <source src={pickedSong.audioFile} />
                     </audio> */}
-                <AudioControls />
+                <AudioControls {...controlProps} />
             </div>
         </AudioPlayerContainer>
     )
