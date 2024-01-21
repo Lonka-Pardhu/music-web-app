@@ -10,18 +10,6 @@ export default function SongsList() {
     const handleClick = (song) => {
         setClickedSong(song);
     }
-    const handlePlay = () => {
-        console.log('play clicked')
-    }
-    const handlePause = () => {
-        console.log('pause clicked')
-    }
-    const handleNext = () => {
-        console.log('next clicked')
-    }
-    const handlePrevious = () => {
-        console.log('previous clicked')
-    }
     return (
         <SongsListWrapper>
             {Songs.map(song => (
@@ -43,11 +31,7 @@ export default function SongsList() {
             {/* <AudioPlayer /> */}
             {clickedSong ?
                 (<AudioPlayer
-                    pickedSong={clickedSong}
-                    onPlay={handlePlay}
-                    onNext={handleNext}
-                    onPause={handlePause}
-                    onPrevious={handlePrevious} />
+                    pickedSong={clickedSong} />
                 ) : (
                     <AudioPlayer />)}
         </SongsListWrapper>

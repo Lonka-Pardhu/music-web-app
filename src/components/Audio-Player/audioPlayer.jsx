@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { AudioPlayerContainer } from "./audioPlayer.styled";
 import { AudioPlayerDefault } from "./audioPlayerDefault.styled";
 import AudioControls from "./PlayerControls/audioControls"
 
-export default function AudioPlayer({ pickedSong, ...controlProps }) {
+export default function AudioPlayer({ pickedSong }) {
+
+    const [isPlaying, setIsPlaying] = useState(false)
 
     const audioRef = useRef(null);
 
@@ -13,6 +15,17 @@ export default function AudioPlayer({ pickedSong, ...controlProps }) {
             audioRef.current.load();
         }
     }, [pickedSong])
+
+    const handlePlayPause = () => {
+        setIsPlaying(prev => !prev)
+        console.log('play clicked')
+    }
+    const handleNext = () => {
+        console.log('next clicked')
+    }
+    const handlePrevious = () => {
+        console.log('previous clicked')
+    }
 
     if (!pickedSong) {
         return (
@@ -37,7 +50,12 @@ export default function AudioPlayer({ pickedSong, ...controlProps }) {
                 {/* <audio controls autoPlay ref={audioRef}>
                         <source src={pickedSong.audioFile} />
                     </audio> */}
-                <AudioControls {...controlProps} />
+                <AudioControls
+                    onPlayPause={handlePlayPause}
+                    onNext={handleNext}
+                    onPrevious={handlePrevious}
+                    playingState={isPlaying}
+                />
             </div>
         </AudioPlayerContainer>
     )

@@ -1,24 +1,28 @@
 /* eslint-disable react/prop-types */
 import { AudioControlsContainer } from "./audioControls.styled";
-import { IoPlayCircleSharp } from "react-icons/io5";
-import { IoPauseCircleSharp } from "react-icons/io5";
-import { BiSkipNext } from "react-icons/bi";
-import { BiSkipPrevious } from "react-icons/bi";
+import { IoPlayCircleSharp, IoPauseCircleSharp } from "react-icons/io5";
+import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
+// import { useState } from "react";
 
 
-export default function AudioControls({ onPlay, onPause, onNext, onPrevious }) {
+export default function AudioControls({ onPlayPause, onNext, onPrevious, playingState }) {
+
+    const playPauseIcon = playingState ? (
+        <IoPlayCircleSharp key='play' onClick={onPlayPause} />
+    ) : (
+        <IoPauseCircleSharp key='pause' onClick={onPlayPause} />);
+
     const controlIconsArr = [
         <BiSkipPrevious key='previous' onClick={onPrevious} />,
-        <IoPlayCircleSharp key='play' onClick={onPlay} />,
-        <IoPauseCircleSharp key='pause' onClick={onPause} />,
+        playPauseIcon,
         <BiSkipNext key='next' onClick={onNext} />
     ];
 
     return (
         <AudioControlsContainer>
-            {controlIconsArr.map((icon, index) => (
+            {controlIconsArr.map((icon, index) =>
                 <span key={index} className="react-icon">{icon}</span>
-            ))}
+            )}
         </AudioControlsContainer>
     )
 }
