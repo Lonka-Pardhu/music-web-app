@@ -17,7 +17,12 @@ export default function AudioPlayer({ pickedSong }) {
     }, [pickedSong])
 
     const handlePlayPause = () => {
-        setIsPlaying(prev => !prev)
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
+        }
+        setIsPlaying(isPlaying => !isPlaying)
         console.log('play clicked')
     }
     const handleNext = () => {
@@ -47,7 +52,7 @@ export default function AudioPlayer({ pickedSong }) {
                         <p>{pickedSong.artist}</p>
                     </ActiveSongDetailsStyled>
                 </ActiveSongWrapperStyled>
-                <audio controls ref={audioRef}>
+                <audio style={{ display: "none" }} ref={audioRef}>
                     <source src={pickedSong.audioFile} />
                 </audio>
                 <AudioControls
