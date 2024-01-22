@@ -1,14 +1,33 @@
 import styled from "styled-components";
 
 export const AudioControlsContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+export const AudioControlsWrapperStyled = styled.div`
   > span {
     color:white;
     font-size: 45px;
     cursor:pointer;
   }
 `
-// export const SongSlider
+{/* //! Work here */ }
+export const SongSliderContainerStyled = styled.div`
 
+`
+
+export const ProgressBarContainerStyled = styled.div`
+  width: 350px;
+  height: 3px;
+  background-color: aliceblue;
+  border-radius: 5px;
+`
+
+export const ProgressBarStyled = styled.div`
+
+`
+{/* //! Work here */ }
 export const VolumeControlContainerStyled = styled.div`
   display: flex;
   align-items: center;
