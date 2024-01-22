@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react"
-import { AudioPlayerContainer } from "./audioPlayer.styled";
-import { AudioPlayerDefault } from "./audioPlayerDefault.styled";
+import { AudioPlayerContainerStyled, AudioPlayerWrapperStyled, ActiveSongWrapperStyled, ActiveSongImageContainerStyled, ActiveSongDetailsStyled } from "./audioPlayer.styled";
+import { AudioPlayerDefaultStyled } from "./audioPlayerDefault.styled";
 import AudioControls from "./PlayerControls/audioControls"
 
 export default function AudioPlayer({ pickedSong }) {
@@ -29,34 +29,34 @@ export default function AudioPlayer({ pickedSong }) {
 
     if (!pickedSong) {
         return (
-            <AudioPlayerDefault>
+            <AudioPlayerDefaultStyled>
                 <h2>Please click on any of the songs above</h2>
-            </AudioPlayerDefault>
+            </AudioPlayerDefaultStyled>
         )
     }
 
     return (
-        <AudioPlayerContainer>
-            <div className="audio-player-wrapper">
-                <div className="active-song-details-wrap">
-                    <div className="active-song-image-container">
+        <AudioPlayerContainerStyled>
+            <AudioPlayerWrapperStyled>
+                <ActiveSongWrapperStyled>
+                    <ActiveSongImageContainerStyled>
                         <img src={pickedSong.songImage} alt="albumImage" />
-                    </div>
-                    <div className="active-song-details">
+                    </ActiveSongImageContainerStyled>
+                    <ActiveSongDetailsStyled>
                         <p>{pickedSong.songName}</p>
                         <p>{pickedSong.artist}</p>
-                    </div>
-                </div>
-                {/* <audio controls autoPlay ref={audioRef}>
-                        <source src={pickedSong.audioFile} />
-                    </audio> */}
+                    </ActiveSongDetailsStyled>
+                </ActiveSongWrapperStyled>
+                <audio controls ref={audioRef}>
+                    <source src={pickedSong.audioFile} />
+                </audio>
                 <AudioControls
                     onPlayPause={handlePlayPause}
                     onNext={handleNext}
                     onPrevious={handlePrevious}
                     playingState={isPlaying}
                 />
-            </div>
-        </AudioPlayerContainer>
+            </AudioPlayerWrapperStyled>
+        </AudioPlayerContainerStyled>
     )
 }

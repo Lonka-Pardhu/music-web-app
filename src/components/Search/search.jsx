@@ -1,13 +1,13 @@
-import { SearchFieldWrapper } from "./search.styled"
+import { SearchFieldContainerStyled, SearchFieldWrapperStyled } from "./search.styled"
 import { IoMdSearch } from "react-icons/io";
 
 export default function Search() {
     return (
-        <SearchFieldWrapper>
-            <div className="search-field-container">
+        <SearchFieldContainerStyled>
+            <SearchFieldWrapperStyled>
                 <input type="text" className='search-field' name="search-field" placeholder="Search for songs . . . ♪ " />
                 <span className="react-icon search-icon"><IoMdSearch /></span>
-            </div>
-        </SearchFieldWrapper >
+            </SearchFieldWrapperStyled>
+        </SearchFieldContainerStyled>
     )
 }

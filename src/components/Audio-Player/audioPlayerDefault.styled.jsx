@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AudioPlayerDefault = styled.div`
+export const AudioPlayerDefaultStyled = styled.div`
     height: 100px;
     width: 100%;
     background-color: #121212;

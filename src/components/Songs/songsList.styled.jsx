@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-export const SongsListWrapper = styled.div`
-    margin:30px 0 120px 300px;
+export const SongsListWrapperStyled = styled.div`
+  margin:30px 0 120px 300px;
+`
 
-.song-container{
+export const SongContainerStyled = styled.div`
   width: 450px;
   height: 60px;
   margin-top: 20px;
@@ -16,36 +17,42 @@ export const SongsListWrapper = styled.div`
   justify-content: space-between;
   transition: background-color 0.3s ease;
   cursor: pointer;
-}
-.song-container:hover{
+
+  &:hover{
   background-color: #1A1A1A;
 }
-.song-coverImg-container{
+`
+
+export const SongDetailsContainerStyled = styled.div`
+  align-items: center;
+  display: flex;
+`
+export const SongDurationContainerStyled = styled.div`
+  > p{
+  font-size: 14px;
+}
+`
+
+export const SongImgContainerStyled = styled.div`
   width: 40px;
   height: 40px;
-}
-.song-coverImg-container > img{
+
+  > img{
   border-radius: 3px;
   width: 100%;
   height: 100%;
 }
-.song-details-wrap-one{
-  align-items: center;
-  display: flex;
-}
-.song-name-artist{
+`
+export const SongNameArtistStyled = styled.div`
   margin-left: 15px;
-}
-.song-name-artist > p:nth-child(1){
-  font-size: 14px;
-  margin: 0;
-}
-.song-name-artist > p:nth-child(2){
-  font-size: 12px;
-  color: #b3b2b2;
-  margin: 0;
-}
-.song-duration-container > p{
-  font-size: 14px;
+
+  > p:nth-child(1){
+    font-size: 14px;
+    margin: 0;
+  }
+  > p:nth-child(2){
+    font-size: 12px;
+    color: #b3b2b2;
+    margin: 0;
 }
 `

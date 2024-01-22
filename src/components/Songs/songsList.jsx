@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import Songs from '../songs'
 import AudioPlayer from '../Audio-Player/audioPlayer';
-import { SongsListWrapper } from './songsList.styled';
+import { SongsListWrapperStyled, SongContainerStyled, SongDetailsContainerStyled, SongDurationContainerStyled, SongImgContainerStyled, SongNameArtistStyled } from './songsList.styled';
+
 
 
 export default function SongsList() {
@@ -11,22 +12,22 @@ export default function SongsList() {
         setClickedSong(song);
     }
     return (
-        <SongsListWrapper>
+        <SongsListWrapperStyled>
             {Songs.map(song => (
-                <div className="song-container" key={song.id} onClick={() => { handleClick(song) }}>
-                    <div className="song-details-wrap-one">
-                        <div className="song-coverImg-container">
+                <SongContainerStyled key={song.id} onClick={() => { handleClick(song) }}>
+                    <SongDetailsContainerStyled>
+                        <SongImgContainerStyled>
                             <img src={song.songImage} alt="albumImage" />
-                        </div>
-                        <div className="song-name-artist">
+                        </SongImgContainerStyled>
+                        <SongNameArtistStyled>
                             <p>{song.songName}</p>
                             <p>{song.artist}</p>
-                        </div>
-                    </div>
-                    <div className="song-duration-container">
+                        </SongNameArtistStyled>
+                    </SongDetailsContainerStyled>
+                    <SongDurationContainerStyled>
                         <p>{song.duration}</p>
-                    </div>
-                </div>
+                    </SongDurationContainerStyled>
+                </SongContainerStyled>
             ))}
             {/* <AudioPlayer /> */}
             {clickedSong ?
@@ -34,6 +35,6 @@ export default function SongsList() {
                     pickedSong={clickedSong} />
                 ) : (
                     <AudioPlayer />)}
-        </SongsListWrapper>
+        </SongsListWrapperStyled>
     )
 }

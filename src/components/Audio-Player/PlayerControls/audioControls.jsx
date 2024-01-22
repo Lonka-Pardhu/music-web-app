@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { AudioControlsContainer } from "./audioControls.styled";
+import { AudioControlsContainerStyled } from "./audioControls.styled";
 import { IoPlayCircleSharp, IoPauseCircleSharp } from "react-icons/io5";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 // import { useState } from "react";
@@ -7,22 +7,25 @@ import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 
 export default function AudioControls({ onPlayPause, onNext, onPrevious, playingState }) {
 
-    const playPauseIcon = playingState ? (
-        <IoPlayCircleSharp key='play' onClick={onPlayPause} />
-    ) : (
-        <IoPauseCircleSharp key='pause' onClick={onPlayPause} />);
-
-    const controlIconsArr = [
-        <BiSkipPrevious key='previous' onClick={onPrevious} />,
-        playPauseIcon,
-        <BiSkipNext key='next' onClick={onNext} />
-    ];
-
     return (
-        <AudioControlsContainer>
-            {controlIconsArr.map((icon, index) =>
-                <span key={index} className="react-icon">{icon}</span>
+        <AudioControlsContainerStyled>
+            <span className="react-icon">
+                <BiSkipPrevious onClick={onPrevious} />
+            </span>
+            {playingState ? (
+                <span className="react-icon">
+                    <IoPauseCircleSharp key='pause' onClick={onPlayPause} />
+                </span>
+            ) : (
+                <span className="react-icon">
+                    <IoPlayCircleSharp key='play' onClick={onPlayPause} />
+                </span>
             )}
-        </AudioControlsContainer>
+            <span className="react-icon">
+                <BiSkipNext onClick={onNext} />
+            </span>
+
+
+        </AudioControlsContainerStyled>
     )
 }
