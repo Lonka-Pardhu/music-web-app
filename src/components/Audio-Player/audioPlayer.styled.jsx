@@ -14,13 +14,14 @@ export const AudioPlayerWrapperStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin: 20px 0 0 140px; */
+  margin: 0 25px 0 25px;
 `
 
 export const ActiveSongWrapperStyled = styled.div`
-  display: flex;
-  align-items: center;
-  /* margin-right: 120px; */
+    margin-top: 15px;
+    width: 400px;
+    display: flex;
+    align-items: center;
 `;
 
 export const ActiveSongImageContainerStyled = styled.div`

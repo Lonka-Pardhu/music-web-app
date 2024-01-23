@@ -11,19 +11,19 @@ export default function AudioControls({ onPlayPause, onNext, onPrevious, playing
         <>
             <AudioControlsContainerStyled>
                 <AudioControlsWrapperStyled>
-                    <span className="react-icon">
+                    <span className="previous-icon">
                         <BiSkipPrevious onClick={onPrevious} />
                     </span>
                     {playingState ? (
-                        <span className="react-icon">
+                        <span>
                             <IoPauseCircleSharp key='pause' onClick={onPlayPause} />
                         </span>
                     ) : (
-                        <span className="react-icon">
+                        <span>
                             <IoPlayCircleSharp key='play' onClick={onPlayPause} />
                         </span>
                     )}
-                    <span className="react-icon">
+                    <span className="next-icon">
                         <BiSkipNext onClick={onNext} />
                     </span>
                 </AudioControlsWrapperStyled>
