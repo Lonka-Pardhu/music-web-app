@@ -28,7 +28,17 @@ export const AudioControlsWrapperStyled = styled.div`
 `
 {/* //! Work here */ }
 export const SongSliderContainerStyled = styled.div`
-  cursor:pointer;
+
+  display: flex;
+  align-items: center;
+  gap:5px;
+  font-weight: 300;
+
+  > p{
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
 `
 
 export const ProgressBarContainerStyled = styled.div`
@@ -36,15 +46,17 @@ export const ProgressBarContainerStyled = styled.div`
   height: 4px;
   background-color: aliceblue;
   border-radius: 10px;
-  `
+  cursor:pointer;
+`
 
 export const ProgressBarStyled = styled.div`
   background-color: #f83821;
   height: 100%;
-  width: 50%;
+  width: 0%;
   border-radius: 10px;
 `
 {/* //! Work here */ }
+
 export const VolumeControlContainerStyled = styled.div`
   display: flex;
   align-items: center;

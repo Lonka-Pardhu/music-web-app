@@ -3,8 +3,6 @@ import Songs from '../songs'
 import AudioPlayer from '../Audio-Player/audioPlayer';
 import { SongsListWrapperStyled, SongContainerStyled, SongDetailsContainerStyled, SongDurationContainerStyled, SongImgContainerStyled, SongNameArtistStyled } from './songsList.styled';
 
-
-
 export default function SongsList() {
     const [clickedSong, setClickedSong] = useState(null);
 
@@ -31,8 +29,7 @@ export default function SongsList() {
             ))}
             {/* <AudioPlayer /> */}
             {clickedSong ?
-                (<AudioPlayer
-                    pickedSong={clickedSong} />
+                (<AudioPlayer pickedSong={clickedSong} />
                 ) : (
                     <AudioPlayer />)}
         </SongsListWrapperStyled>

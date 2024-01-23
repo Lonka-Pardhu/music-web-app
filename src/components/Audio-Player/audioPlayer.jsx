@@ -6,7 +6,8 @@ import AudioControls from "./PlayerControls/audioControls"
 
 export default function AudioPlayer({ pickedSong }) {
 
-    const [isPlaying, setIsPlaying] = useState(false)
+    const [isPlaying, setIsPlaying] = useState(true);
+    const [audioMetaData, setAudioMetaData] = useState(false);
 
     const audioRef = useRef(null);
 
@@ -32,6 +33,10 @@ export default function AudioPlayer({ pickedSong }) {
         console.log('previous clicked')
     }
 
+    const handleMetaDataLoad = () => {
+        setAudioMetaData(true);
+    }
+
     if (!pickedSong) {
         return (
             <AudioPlayerDefaultStyled>
@@ -52,14 +57,18 @@ export default function AudioPlayer({ pickedSong }) {
                         <p>{pickedSong.artist}</p>
                     </ActiveSongDetailsStyled>
                 </ActiveSongWrapperStyled>
-                <audio style={{ display: "none" }} ref={audioRef}>
+
+                <audio autoPlay onLoadedMetadata={handleMetaDataLoad} style={{ display: "none" }} ref={audioRef}>
                     <source src={pickedSong.audioFile} />
                 </audio>
+
                 <AudioControls
                     onPlayPause={handlePlayPause}
                     onNext={handleNext}
                     onPrevious={handlePrevious}
                     playingState={isPlaying}
+                    audioRef={audioRef}
+                    audioMetaData={audioMetaData}
                 />
             </AudioPlayerWrapperStyled>
         </AudioPlayerContainerStyled>

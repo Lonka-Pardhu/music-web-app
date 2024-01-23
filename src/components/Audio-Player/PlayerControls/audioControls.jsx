@@ -5,7 +5,7 @@ import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { MdVolumeUp } from "react-icons/md";
 // import { useState } from "react";
 
-export default function AudioControls({ onPlayPause, onNext, onPrevious, playingState }) {
+export default function AudioControls({ onPlayPause, onNext, onPrevious, playingState, audioRef, audioMetaData }) {
 
     return (
         <>
@@ -27,15 +27,19 @@ export default function AudioControls({ onPlayPause, onNext, onPrevious, playing
                         <BiSkipNext onClick={onNext} />
                     </span>
                 </AudioControlsWrapperStyled>
-                {/* //! Work here */}
-                <SongSliderContainerStyled>
-                    <ProgressBarContainerStyled>
-                        <ProgressBarStyled>
 
-                        </ProgressBarStyled>
-                    </ProgressBarContainerStyled>
+                <SongSliderContainerStyled>
+                    {audioMetaData && (
+                        <>
+                            <p>{audioRef.current.currentTime}</p>
+                            <ProgressBarContainerStyled>
+                                <ProgressBarStyled></ProgressBarStyled>
+                            </ProgressBarContainerStyled>
+                            <p>{audioRef.current.duration}</p>
+                        </>
+                    )}
                 </SongSliderContainerStyled>
-                {/* //! Work here */}
+
             </AudioControlsContainerStyled>
             <VolumeControlContainerStyled>
                 <span className="react-icon"><MdVolumeUp /></span>

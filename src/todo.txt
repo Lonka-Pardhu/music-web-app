@@ -1,0 +1,9 @@
+/* Progress bar feature
+
+/* Integrate react router
+
+/* React forms
+
+/* Color theme change using Context
+
+/* In case when the audio metadata is not loaded (e.g., show a loading indicator or handle it in a way that provides feedback to the user).
