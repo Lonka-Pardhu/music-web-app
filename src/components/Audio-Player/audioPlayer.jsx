@@ -4,9 +4,8 @@ import { AudioPlayerContainerStyled, AudioPlayerWrapperStyled, ActiveSongWrapper
 import { AudioPlayerDefaultStyled } from "./audioPlayerDefault.styled";
 import AudioControls from "./PlayerControls/audioControls"
 
-export default function AudioPlayer({ pickedSong }) {
+export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
 
-    const [isPlaying, setIsPlaying] = useState(true);
     const [audioMetaData, setAudioMetaData] = useState(false);
 
     const audioRef = useRef(null);
@@ -24,7 +23,6 @@ export default function AudioPlayer({ pickedSong }) {
             audioRef.current.play();
         }
         setIsPlaying(isPlaying => !isPlaying)
-        console.log('play clicked')
     }
     const handleNext = () => {
         console.log('next clicked')
@@ -66,7 +64,7 @@ export default function AudioPlayer({ pickedSong }) {
                     onPlayPause={handlePlayPause}
                     onNext={handleNext}
                     onPrevious={handlePrevious}
-                    playingState={isPlaying}
+                    isPlaying={isPlaying}
                     audioRef={audioRef}
                     audioMetaData={audioMetaData}
                 />

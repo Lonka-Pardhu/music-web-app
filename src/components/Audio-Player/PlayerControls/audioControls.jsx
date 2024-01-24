@@ -3,9 +3,10 @@ import { AudioControlsContainerStyled, AudioControlsWrapperStyled, VolumeControl
 import { IoPlayCircleSharp, IoPauseCircleSharp } from "react-icons/io5";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { MdVolumeUp } from "react-icons/md";
-// import { useState } from "react";
 
-export default function AudioControls({ onPlayPause, onNext, onPrevious, playingState, audioRef, audioMetaData }) {
+
+export default function AudioControls({ onPlayPause, onNext, onPrevious, isPlaying, audioRef, audioMetaData }) {
+
 
     return (
         <>
@@ -14,7 +15,7 @@ export default function AudioControls({ onPlayPause, onNext, onPrevious, playing
                     <span className="previous-icon">
                         <BiSkipPrevious onClick={onPrevious} />
                     </span>
-                    {playingState ? (
+                    {isPlaying ? (
                         <span>
                             <IoPauseCircleSharp key='pause' onClick={onPlayPause} />
                         </span>

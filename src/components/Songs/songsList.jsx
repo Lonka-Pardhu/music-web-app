@@ -4,10 +4,15 @@ import AudioPlayer from '../Audio-Player/audioPlayer';
 import { SongsListWrapperStyled, SongContainerStyled, SongDetailsContainerStyled, SongDurationContainerStyled, SongImgContainerStyled, SongNameArtistStyled } from './songsList.styled';
 
 export default function SongsList() {
+
     const [clickedSong, setClickedSong] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(true);
 
     const handleClick = (song) => {
         setClickedSong(song);
+        if (!isPlaying) {
+            setIsPlaying(isPlaying => !isPlaying)
+        }
     }
     return (
         <SongsListWrapperStyled>
@@ -29,7 +34,10 @@ export default function SongsList() {
             ))}
             {/* <AudioPlayer /> */}
             {clickedSong ?
-                (<AudioPlayer pickedSong={clickedSong} />
+                (<AudioPlayer
+                    pickedSong={clickedSong}
+                    isPlaying={isPlaying}
+                    setIsPlaying={setIsPlaying} />
                 ) : (
                     <AudioPlayer />)}
         </SongsListWrapperStyled>
