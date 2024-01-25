@@ -18,7 +18,7 @@ const songsData = [
         artist: 'Juice WRLD',
         audioFile: [lucidDreamsSong],
         songImage: [lucidDreams],
-        duration: '04:00'
+        duration: '03:50'
     },
     {
         id: 2,
@@ -34,7 +34,7 @@ const songsData = [
         artist: 'VOJ',
         audioFile: [memoryRebootSong],
         songImage: [memoryReboot],
-        duration: '03:09'
+        duration: '03:28'
     },
     {
         id: 4,
@@ -50,7 +50,7 @@ const songsData = [
         artist: 'The Weekend',
         audioFile: [starboySong],
         songImage: [starboy],
-        duration: '03:50'
+        duration: '03:51'
     },
     {
         id: 6,
@@ -58,7 +58,7 @@ const songsData = [
         artist: 'NF',
         audioFile: [searchSong],
         songImage: [theSearch],
-        duration: '04:08'
+        duration: '04:51'
     }
 ];
 export default songsData;

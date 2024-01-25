@@ -37,13 +37,19 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
 
     const handleMetaDataLoad = () => {
         setAudioMetaData(true);
-        const filteredDuration = Math.floor(audioRef.current.duration)
-        setDuration(filteredDuration);
+        const totalSeconds = Math.floor(audioRef.current.duration)
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        setDuration({ minutes, seconds });
     }
+
     const handleTimeUpdate = () => {
-        const filteredTime = Math.floor(audioRef.current.currentTime)
-        setCurrentTime(filteredTime);
+        const currentSeconds = Math.floor(audioRef.current.currentTime);
+        const minutes = Math.floor(currentSeconds / 60);
+        const seconds = currentSeconds % 60;
+        setCurrentTime({ minutes, seconds });
     }
+
     if (!pickedSong) {
         return (
             <AudioPlayerDefaultStyled>
@@ -91,11 +97,11 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
                     <SongSliderContainerStyled>
                         {audioMetaData && (
                             <>
-                                <p>{currentTime}</p>
+                                <p>{currentTime.minutes}:{currentTime.seconds < 10 ? '0' : ''}{currentTime.seconds}</p>
                                 <ProgressBarContainerStyled>
                                     <ProgressBarStyled></ProgressBarStyled>
                                 </ProgressBarContainerStyled>
-                                <p>{duration}</p>
+                                <p>{duration.minutes}:{duration.seconds < 10 ? '0' : ''}{duration.seconds}</p>
                             </>
                         )}
                     </SongSliderContainerStyled>
