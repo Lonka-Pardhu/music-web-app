@@ -2,12 +2,16 @@
 import { useEffect, useRef, useState } from "react"
 import { AudioPlayerContainerStyled, AudioPlayerWrapperStyled, ActiveSongWrapperStyled, ActiveSongImageContainerStyled, ActiveSongDetailsStyled } from "./audioPlayer.styled";
 import { AudioPlayerDefaultStyled } from "./audioPlayerDefault.styled";
-import AudioControls from "./PlayerControls/audioControls"
+import { AudioControlsContainerStyled, AudioControlsWrapperStyled, VolumeControlContainerStyled, VolumeControlBar, SongSliderContainerStyled, ProgressBarContainerStyled, ProgressBarStyled } from "./audioControls.styled";
+import { IoPlayCircleSharp, IoPauseCircleSharp } from "react-icons/io5";
+import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
+import { MdVolumeUp } from "react-icons/md";
 
 export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
 
     const [audioMetaData, setAudioMetaData] = useState(false);
-
+    const [duration, setDuration] = useState(0)
+    const [currentTime, setCurrentTime] = useState(0)
     const audioRef = useRef(null);
 
     useEffect(() => {
@@ -33,8 +37,13 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
 
     const handleMetaDataLoad = () => {
         setAudioMetaData(true);
+        const filteredDuration = Math.floor(audioRef.current.duration)
+        setDuration(filteredDuration);
     }
-
+    const handleTimeUpdate = () => {
+        const filteredTime = Math.floor(audioRef.current.currentTime)
+        setCurrentTime(filteredTime);
+    }
     if (!pickedSong) {
         return (
             <AudioPlayerDefaultStyled>
@@ -56,18 +65,48 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
                     </ActiveSongDetailsStyled>
                 </ActiveSongWrapperStyled>
 
-                <audio autoPlay onLoadedMetadata={handleMetaDataLoad} style={{ display: "none" }} ref={audioRef}>
+                <audio autoPlay onTimeUpdate={handleTimeUpdate} onLoadedMetadata={handleMetaDataLoad} style={{ display: "none" }} ref={audioRef}>
                     <source src={pickedSong.audioFile} />
                 </audio>
 
-                <AudioControls
-                    onPlayPause={handlePlayPause}
-                    onNext={handleNext}
-                    onPrevious={handlePrevious}
-                    isPlaying={isPlaying}
-                    audioRef={audioRef}
-                    audioMetaData={audioMetaData}
-                />
+                <AudioControlsContainerStyled>
+                    <AudioControlsWrapperStyled>
+                        <span className="previous-icon">
+                            <BiSkipPrevious onClick={handlePrevious} />
+                        </span>
+                        {isPlaying ? (
+                            <span>
+                                <IoPauseCircleSharp key='pause' onClick={handlePlayPause} />
+                            </span>
+                        ) : (
+                            <span>
+                                <IoPlayCircleSharp key='play' onClick={handlePlayPause} />
+                            </span>
+                        )}
+                        <span className="next-icon">
+                            <BiSkipNext onClick={handleNext} />
+                        </span>
+                    </AudioControlsWrapperStyled>
+
+                    <SongSliderContainerStyled>
+                        {audioMetaData && (
+                            <>
+                                <p>{currentTime}</p>
+                                <ProgressBarContainerStyled>
+                                    <ProgressBarStyled></ProgressBarStyled>
+                                </ProgressBarContainerStyled>
+                                <p>{duration}</p>
+                            </>
+                        )}
+                    </SongSliderContainerStyled>
+
+                </AudioControlsContainerStyled>
+                <VolumeControlContainerStyled>
+                    <span className="react-icon"><MdVolumeUp /></span>
+                    <VolumeControlBar>
+
+                    </VolumeControlBar>
+                </VolumeControlContainerStyled>
             </AudioPlayerWrapperStyled>
         </AudioPlayerContainerStyled>
     )

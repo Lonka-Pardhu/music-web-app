@@ -29,7 +29,8 @@ export const SongDetailsContainerStyled = styled.div`
 `
 export const SongDurationContainerStyled = styled.div`
   > p{
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 300;
 }
 `
 

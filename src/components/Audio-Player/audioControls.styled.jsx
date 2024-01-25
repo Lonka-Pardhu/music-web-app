@@ -32,10 +32,10 @@ export const SongSliderContainerStyled = styled.div`
   display: flex;
   align-items: center;
   gap:5px;
-  font-weight: 300;
-
+  
   > p{
-    font-size: 11px;
+    font-weight: 300;
+    font-size: 12px;
     letter-spacing: 0.5px;
     margin: 0;
   }
@@ -67,7 +67,7 @@ export const VolumeControlContainerStyled = styled.div`
 `
 
 export const VolumeControlBar = styled.div`
-  height: 3px;
+  height: 4px;
   width: 100px;
   background-color: aliceblue;
   border-radius: 5px;
