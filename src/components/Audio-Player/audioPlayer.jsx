@@ -13,6 +13,8 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
     const [duration, setDuration] = useState(0)
     const [currentTime, setCurrentTime] = useState(0)
     const audioRef = useRef(null);
+    const progressBarRef = useRef(null);
+    const songBarRef = useRef(null);
 
     useEffect(() => {
         if (audioRef.current) {
@@ -47,7 +49,19 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
         const currentSeconds = Math.floor(audioRef.current.currentTime);
         const minutes = Math.floor(currentSeconds / 60);
         const seconds = currentSeconds % 60;
+        const progressBarWidth = (audioRef.current.currentTime / audioRef.current.duration) * 100;
+        if (progressBarRef.current) {
+            progressBarRef.current.style.width = `${progressBarWidth}%`;
+        }
         setCurrentTime({ minutes, seconds });
+    }
+
+    const handleProgressBarClick = (e) => {
+        const clickPosition = e.pageX - songBarRef.current.getBoundingClientRect().left;
+        const clickPositionInPercent = (clickPosition / songBarRef.current.offsetWidth) * 100;
+        const clickTimeInSeconds = (audioRef.current.duration / 100) * clickPositionInPercent;
+        audioRef.current.currentTime = clickTimeInSeconds;
+        setCurrentTime(audioRef.current.currentTime);
     }
 
     if (!pickedSong) {
@@ -98,8 +112,8 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
                         {audioMetaData && (
                             <>
                                 <p>{currentTime.minutes}:{currentTime.seconds < 10 ? '0' : ''}{currentTime.seconds}</p>
-                                <ProgressBarContainerStyled>
-                                    <ProgressBarStyled></ProgressBarStyled>
+                                <ProgressBarContainerStyled ref={songBarRef} onClick={handleProgressBarClick}>
+                                    <ProgressBarStyled ref={progressBarRef}></ProgressBarStyled>
                                 </ProgressBarContainerStyled>
                                 <p>{duration.minutes}:{duration.seconds < 10 ? '0' : ''}{duration.seconds}</p>
                             </>
