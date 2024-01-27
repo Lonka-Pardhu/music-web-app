@@ -8,7 +8,7 @@ export default function SongsList() {
     const [clickedSong, setClickedSong] = useState(null);
     const [isPlaying, setIsPlaying] = useState(true);
 
-    const handleClick = (song) => {
+    const handleSongClick = (song) => {
         setClickedSong(song);
         if (!isPlaying) {
             setIsPlaying(isPlaying => !isPlaying)
@@ -17,7 +17,7 @@ export default function SongsList() {
     return (
         <SongsListWrapperStyled>
             {Songs.map(song => (
-                <SongContainerStyled key={song.id} onClick={() => { handleClick(song) }}>
+                <SongContainerStyled key={song.id} onClick={() => { handleSongClick(song) }}>
                     <SongDetailsContainerStyled>
                         <SongImgContainerStyled>
                             <img src={song.songImage} alt="albumImage" />

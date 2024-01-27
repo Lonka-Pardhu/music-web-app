@@ -26,7 +26,7 @@ export const AudioControlsWrapperStyled = styled.div`
   }
   
 `
-{/* //! Work here */ }
+
 export const SongSliderContainerStyled = styled.div`
 
   display: flex;
@@ -55,7 +55,6 @@ export const ProgressBarStyled = styled.div`
   width: 0%;
   border-radius: 10px;
 `
-{/* //! Work here */ }
 
 export const VolumeControlContainerStyled = styled.div`
   display: flex;

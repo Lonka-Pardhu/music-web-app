@@ -57,9 +57,13 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
     }
 
     const handleProgressBarClick = (e) => {
-        const clickPosition = e.pageX - songBarRef.current.getBoundingClientRect().left;
-        const clickPositionInPercent = (clickPosition / songBarRef.current.offsetWidth) * 100;
+        const whatIsSongBarTotalWidth = songBarRef.current.offsetWidth;
+
+        const whereDidUserClikedOnSongBar = e.pageX - songBarRef.current.getBoundingClientRect().left;
+        const clickPositionInPercent = (whereDidUserClikedOnSongBar / whatIsSongBarTotalWidth) * 100;
+
         const clickTimeInSeconds = (audioRef.current.duration / 100) * clickPositionInPercent;
+
         audioRef.current.currentTime = clickTimeInSeconds;
         setCurrentTime(audioRef.current.currentTime);
     }
