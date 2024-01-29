@@ -14,7 +14,15 @@ Visit the live deployment of this project (https://music-web-app-pardhu.vercel.a
 
 
 
-https://github.com/Lonka-Pardhu/music-web-app/assets/108354935/b4bf32b0-b121-429d-9863-f316cfb3acdc
+
+
+
+
+https://github.com/Lonka-Pardhu/music-web-app/assets/108354935/acd7d205-24b2-4bba-b91d-46fb6b755e50
+
+
+
+
 
 
 
