@@ -57,15 +57,17 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
     }
 
     const handleProgressBarClick = (e) => {
-        const whatIsSongBarTotalWidth = songBarRef.current.offsetWidth;
+        const clickPosition = e.pageX - songBarRef.current.getBoundingClientRect().left;
+        const clickPositionInPercent = (clickPosition / songBarRef.current.offsetWidth) * 100;
 
-        const whereDidUserClikedOnSongBar = e.pageX - songBarRef.current.getBoundingClientRect().left;
-        const clickPositionInPercent = (whereDidUserClikedOnSongBar / whatIsSongBarTotalWidth) * 100;
-
+        //we get one percentage of seconds of current song from its total duration by dividing it with 100
+        //we multiply it with the clicked position percentage of progress bar to get the seconds of song at clicked position
         const clickTimeInSeconds = (audioRef.current.duration / 100) * clickPositionInPercent;
 
         audioRef.current.currentTime = clickTimeInSeconds;
-        setCurrentTime(audioRef.current.currentTime);
+        // tho the OnTimeUpdateEvent event calls the below function on every current time change
+        // calling the time update handling function on progress bar click so there is no delay in updating the UI
+        handleTimeUpdate();
     }
 
     if (!pickedSong) {

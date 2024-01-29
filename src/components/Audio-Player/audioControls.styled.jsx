@@ -54,6 +54,7 @@ export const ProgressBarStyled = styled.div`
   height: 100%;
   width: 0%;
   border-radius: 10px;
+  transition: width 0.1s ease-in-out;
 `
 
 export const VolumeControlContainerStyled = styled.div`

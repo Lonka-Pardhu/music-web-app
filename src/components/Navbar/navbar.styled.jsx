@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const NavContainerStyled = styled.div`
   position: fixed;
-  height: 100vh;
+  height: 100%;
   width: 220px;
   background-color: #121212;
 
