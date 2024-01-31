@@ -5,8 +5,10 @@ import runaway from '../media/runaway.jpg'
 import starboy from '../media/starboy.jpg'
 import theSearch from '../media/the-search.jpg'
 import blindingLights from '../media/blinding-lights.jpg'
+import malabariBanger from '../media/malabari-banger.jpg'
 import blindingLightsSong from '../media/blinding-lights-weekend.mp3'
 import lucidDreamsSong from '../media/lucid-dreams-juice-wrld.mp3'
+import malabariBangerSong from '../media/malabari-banger-mhr.mp3'
 import realSlimShadySong from '../media/real-slim-shady-eminem.mp3'
 import memoryRebootSong from '../media/memory-reboot-voj.mp3'
 import runawaySong from '../media/runaway-kanye-west.mp3'
@@ -40,6 +42,14 @@ const songsData = [
     },
     {
         id: 4,
+        songName: 'Malabari Banger',
+        artist: 'M.H.R, JOKER390P, SA, Dabzee',
+        audioFile: [malabariBangerSong],
+        songImage: [malabariBanger],
+        duration: '04:06'
+    },
+    {
+        id: 5,
         songName: 'Memory Reboot',
         artist: 'VOJ',
         audioFile: [memoryRebootSong],
@@ -47,7 +57,7 @@ const songsData = [
         duration: '03:28'
     },
     {
-        id: 5,
+        id: 6,
         songName: 'Runaway',
         artist: 'Kanye West',
         audioFile: [runawaySong],
@@ -55,7 +65,7 @@ const songsData = [
         duration: '09:07'
     },
     {
-        id: 6,
+        id: 7,
         songName: 'Starboy',
         artist: 'The Weekend',
         audioFile: [starboySong],
@@ -63,7 +73,7 @@ const songsData = [
         duration: '03:51'
     },
     {
-        id: 7,
+        id: 8,
         songName: 'The Search',
         artist: 'NF',
         audioFile: [searchSong],

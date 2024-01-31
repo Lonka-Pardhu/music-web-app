@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react"
 import { AudioPlayerContainerStyled, AudioPlayerWrapperStyled, ActiveSongWrapperStyled, ActiveSongImageContainerStyled, ActiveSongDetailsStyled } from "./audioPlayer.styled";
 import { AudioPlayerDefaultStyled } from "./audioPlayerDefault.styled";
-import { AudioControlsContainerStyled, AudioControlsWrapperStyled, VolumeControlContainerStyled, VolumeControlBar, SongSliderContainerStyled, ProgressBarContainerStyled, ProgressBarStyled } from "./audioControls.styled";
+import { AudioControlsContainerStyled, AudioControlsWrapperStyled, VolumeControlContainerStyled, VolumeControlBarStyled, VolumeChangeStyled, SongSliderContainerStyled, ProgressBarContainerStyled, ProgressBarStyled } from "./audioControls.styled";
 import { IoPlayCircleSharp, IoPauseCircleSharp } from "react-icons/io5";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { MdVolumeUp } from "react-icons/md";
@@ -15,6 +15,8 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
     const audioRef = useRef(null);
     const progressBarRef = useRef(null);
     const songBarRef = useRef(null);
+    const volumeControlBarRef = useRef(null);
+    const volumeChangeRef = useRef(null);
 
     useEffect(() => {
         if (audioRef.current) {
@@ -66,8 +68,19 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
 
         audioRef.current.currentTime = clickTimeInSeconds;
         // tho the OnTimeUpdateEvent event calls the below function on every current time change
-        // calling the time update handling function on progress bar click so there is no delay in updating the UI
+        // calling the time update handling function on progress bar click so that there is no delay in updating the UI
         handleTimeUpdate();
+    }
+
+    const handleVolumeChange = (e) => {
+        const volumeClickPosition = e.pageX - volumeControlBarRef.current.getBoundingClientRect().left;
+        const volumeChangeInPercentage = (volumeClickPosition / volumeControlBarRef.current.offsetWidth) * 100;
+        const volumeChangeValue = 0.01 * volumeChangeInPercentage;
+        console.log(volumeChangeValue);
+        audioRef.current.volume = volumeChangeValue;
+        console.log(audioRef.current.volume)
+        volumeChangeRef.current.style.width = `${volumeChangeInPercentage}%`
+
     }
 
     if (!pickedSong) {
@@ -129,9 +142,9 @@ export default function AudioPlayer({ pickedSong, isPlaying, setIsPlaying }) {
                 </AudioControlsContainerStyled>
                 <VolumeControlContainerStyled>
                     <span className="react-icon"><MdVolumeUp /></span>
-                    <VolumeControlBar>
-
-                    </VolumeControlBar>
+                    <VolumeControlBarStyled ref={volumeControlBarRef} onClick={handleVolumeChange}>
+                        <VolumeChangeStyled ref={volumeChangeRef}></VolumeChangeStyled>
+                    </VolumeControlBarStyled>
                 </VolumeControlContainerStyled>
             </AudioPlayerWrapperStyled>
         </AudioPlayerContainerStyled>

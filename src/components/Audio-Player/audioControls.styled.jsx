@@ -66,10 +66,19 @@ export const VolumeControlContainerStyled = styled.div`
   }
 `
 
-export const VolumeControlBar = styled.div`
+export const VolumeControlBarStyled = styled.div`
   height: 4px;
   width: 100px;
   background-color: aliceblue;
   border-radius: 5px;
   margin: 0 4px 0 4px;
+  cursor: pointer;
+  `
+
+export const VolumeChangeStyled = styled.div`
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #f83821;
+  transition: width 0.1s ease-in-out;
 `

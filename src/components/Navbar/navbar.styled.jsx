@@ -5,7 +5,6 @@ export const NavContainerStyled = styled.div`
   height: 100%;
   width: 220px;
   background-color: #121212;
-
 `
 
 export const NavHeadStyled = styled.div`
